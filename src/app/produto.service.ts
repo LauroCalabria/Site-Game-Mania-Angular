@@ -13,8 +13,8 @@ export class ProdutoService {
   constructor(private _httpClient: HttpClient) { }
   
   getProduto(id:any): Observable<Produto>{
-    const urlIdProduto = `${this.url}?id=${id}`;
-    return this._httpClient.get<Produto>(urlIdProduto);
+    const urlAtualizar = `${this.url}?id=${id}`;
+    return this._httpClient.get<Produto>(urlAtualizar);
   }
 
   getProdutos(): Observable<Produto[]>{
@@ -25,7 +25,7 @@ export class ProdutoService {
     return this._httpClient.post<Produto[]>(this.url, produto);
   }
 
-  atualizaProduto(id:any, produto: Produto):Observable<Produto[]>{
+  atualizarProduto(id:any, produto: Produto):Observable<Produto[]>{
     const urlAtualizar = `${this.url}/?${id}`;
     return this._httpClient.put<Produto[]>(urlAtualizar, produto);
   }
